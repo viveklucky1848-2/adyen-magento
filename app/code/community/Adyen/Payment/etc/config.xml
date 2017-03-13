@@ -29,7 +29,7 @@
 <config>
     <modules>
         <Adyen_Payment>
-            <version>2.8.0</version>
+            <version>2.8.1</version>
         </Adyen_Payment>
     </modules>
     <global>
@@ -163,6 +163,18 @@
                     </adyen_payment_billing_agreement>
                 </observers>
             </controller_action_predispatch_checkout>
+            <controller_action_predispatch_firecheckout>
+                <observers>
+                    <adyen_payment_hpp>
+                        <class>adyen/observer</class>
+                        <method>addMethodsToConfig</method>
+                    </adyen_payment_hpp>
+                    <adyen_payment_billing_agreement>
+                        <class>adyen/billing_agreement_observer</class>
+                        <method>addMethodsToConfig</method>
+                    </adyen_payment_billing_agreement>
+                </observers>
+            </controller_action_predispatch_firecheckout>
             <adminhtml_controller_action_predispatch_start>
                 <observers>
                     <adyen_payment_hpp>
@@ -370,8 +382,6 @@
                 <cse_public_key></cse_public_key>
                 <visible_type>both</visible_type>
                 <enable_moto>0</enable_moto>
-                <account_id>99999</account_id>
-                <trxuser_id>99999</trxuser_id>
                 <trxuser_password>0</trxuser_password>
                 <adminaction_password>5cfgRT34xsdedtFLdfHxj7tfwx24fe</adminaction_password>
                 <wsdl>https://pal-test.adyen.com/pal/Payment.wsdl</wsdl>
@@ -386,14 +396,6 @@
                 <sort_order>1</sort_order>
                 <recurring_payment_type>ONECLICK</recurring_payment_type>
             </adyen_oneclick>
-            <adyen_elv translate="title" module="adyen">
-                <active>0</active>
-                <model>adyen/adyen_elv</model>
-                <group>adyen</group>
-                <visible_type>both</visible_type>
-                <title>Adyen ELV</title>
-                <sort_order>50</sort_order>
-            </adyen_elv>
             <adyen_boleto translate="title" module="adyen">
                 <active>0</active>
                 <model>adyen/adyen_boleto</model>
@@ -552,6 +554,11 @@
                         <name>Klarna</name>
                         <order>20</order>
                     </klarna>
+                    <ratepay>
+                        <code>ratepay</code>
+                        <name>RatePAY</name>
+                        <order>30</order>
+                    </ratepay>
                 </openinvoicetypes>
                 <recurringtypes>
                     <none>

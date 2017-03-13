@@ -67,11 +67,11 @@
         <reference name="head">
             <action method="addJs"><script>adyen/payment/cc.js</script></action>
             <action method="addJs"><script>adyen/payment/iban.js</script></action>
-            <action method="addJs"><script>adyen/payment/elv.js</script></action>
             <action method="addCss"><stylesheet>css/adyen.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/adyenstyle.css</stylesheet></action>
         </reference>
         <reference name="after_body_start">
+            <block type="core/template" name="after_body_start_script" template="adyen/after_body_start.phtml" />
             <block type="core/text" name="adyen.diners.validation" after="-">
                 <action method="setText">
                     <text>
@@ -93,7 +93,6 @@
         <reference name="head">
             <action method="addJs"><script>adyen/payment/cc.js</script></action>
             <action method="addJs"><script>adyen/payment/iban.js</script></action>
-            <action method="addJs"><script>adyen/payment/elv.js</script></action>
             <action method="addCss"><stylesheet>css/adyenstyle.css</stylesheet></action>
         </reference>
         <reference name="after_body_start">
@@ -117,7 +116,6 @@
         <reference name="head">
             <action method="addJs"><script>adyen/payment/cc.js</script></action>
             <action method="addJs"><script>adyen/payment/iban.js</script></action>
-            <action method="addJs"><script>adyen/payment/elv.js</script></action>
             <action method="addCss"><stylesheet>css/adyenstyle.css</stylesheet></action>
         </reference>
         <reference name="after_body_start">
@@ -140,7 +138,6 @@
         <reference name="head">
             <action method="addJs"><script>adyen/payment/cc.js</script></action>
             <action method="addJs"><script>adyen/payment/iban.js</script></action>
-            <action method="addJs"><script>adyen/payment/elv.js</script></action>
             <action method="addCss"><stylesheet>css/adyenstyle.css</stylesheet></action>
         </reference>
     </checkout_multishipping_billing>
